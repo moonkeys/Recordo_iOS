@@ -9,55 +9,34 @@
 import UIKit
 
 
-class ViewController: UIViewController {
 
+class ViewController: UIViewController {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        var audioService: AudioService
+        audioService.permissionWasGranted(result: { granted in
+            if (granted) {
+                print("we have mic access!")
+                micOverlay.removeFromParent()
+                audioService.initRecorder()
+                audioService.start()
+                audioService.startCalibration()
+                initGame()
+            } else {
+                print("we don't have mic access :(")
+                micOverlay.render(rect: self.calculateOverlayRect(), text: "no mic access...")
+                addChild(self.micOverlay)
+            }
+        })
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-/*
-    @IBAction func rewindButtonTapped(_ sender: Any) {
-        setOnPause()
-        buttonStatusLabel.text="Rewinding..."
-    }
     
-    @IBAction func playButtonTapped(_ sender: Any) {
-        
-        if !isPlaying
-        {
-            setOnPlay()
-        } else {
-            setOnPause()
-        }
-    }
     
-    @IBAction func fastForwardButtonTapped(_ sender: Any) {
-        setOnPause()
-        buttonStatusLabel.text="Fast forwarding..."
-    }
-    
-    func setOnPause()
-    {
-        var items = self.myToolBar.items
-        items![2] = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.play, target: self, action: #selector(ViewController.playButtonTapped(_:)))
-        isPlaying = false
-        buttonStatusLabel.text = "On pause..."
-        self.myToolBar.setItems(items, animated: true)
-    }
-    
-    func setOnPlay()
-    {
-        var items = self.myToolBar.items
-        items![2] = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.pause, target: self, action: #selector(ViewController.playButtonTapped(_:)))
-        isPlaying = true
-        buttonStatusLabel.text = "Playing..."
-        self.myToolBar.setItems(items, animated: true)
-    }
-*/
 }
 
