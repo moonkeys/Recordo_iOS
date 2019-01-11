@@ -13,19 +13,19 @@ import UIKit
 class ViewController: UIViewController {
     
     @IBOutlet weak var labelDecibel: UILabel!
-    let audioService: AudioService! = nil
+    var audioService: AudioService?
     var decibel:Float = 0.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        audioService.permissionWasGranted(result: { granted in
+        audioService?.permissionWasGranted(result: { granted in
             if (granted) {
                 print("We have mic access!")
-                self.audioService.initRecorder()
-                self.audioService.start()
-                self.audioService.update()
-                self.decibel = self.audioService.getDispersyPercent()
+                self.audioService?.initRecorder()
+                self.audioService?.start()
+                self.audioService?.update()
+                self.decibel = (self.audioService?.getDispersyPercent())!
                 var decibelString = String(self.decibel)
                 self.labelDecibel.text = decibelString
             } else {
