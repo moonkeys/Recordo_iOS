@@ -12,31 +12,37 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    @IBOutlet weak var labelDecibel: UILabel!
+    let audioService: AudioService! = nil
+    var decibel:Float = 0.0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var audioService: AudioService
         audioService.permissionWasGranted(result: { granted in
             if (granted) {
-                print("we have mic access!")
-                micOverlay.removeFromParent()
-                audioService.initRecorder()
-                audioService.start()
-                audioService.startCalibration()
-                initGame()
+                print("We have mic access!")
+                self.audioService.initRecorder()
+                self.audioService.start()
+                self.audioService.update()
+                self.decibel = self.audioService.getDispersyPercent()
+                var decibelString = String(self.decibel)
+                self.labelDecibel.text = decibelString
             } else {
-                print("we don't have mic access :(")
-                micOverlay.render(rect: self.calculateOverlayRect(), text: "no mic access...")
-                addChild(self.micOverlay)
+                print("We don't have mic access")
             }
         })
     }
 
+    /*override func update(_currentTime: TimeInterval) {
+        audioService.update()
+        decibel = audioService.getDispersyPercent()
+        let decibelString = String(decibel)
+        self.labelDecibel.text = decibelString
+    }*/
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    
 }
-
