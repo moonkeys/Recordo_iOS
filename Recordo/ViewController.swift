@@ -26,10 +26,10 @@ class ViewController: UIViewController {
                 print("Permission acceptée pour le microphone");
                 self.sonometre?.initRecorder()
                 self.sonometre?.start()
-                self.sonometre?.update()
+                /*self.sonometre?.update()
                 self.decibel? = (self.sonometre?.getDispersyPercent())!
                 self.decibelString? = String(self.decibel!)
-                self.labelDecibel.text = self.decibelString
+                self.labelDecibel.text = self.decibelString*/
                 return
             } else {
                 print("Permission refusée");
