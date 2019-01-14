@@ -39,12 +39,12 @@ class ViewController: UIViewController {
         })
     }
 
-    /*func update(_currentTime: TimeInterval) {
+    func update(_currentTime: TimeInterval) {
         self.sonometre?.update()
-        decibel = (self.sonometre?.getDispersyPercent())!
-        let decibelString = String(decibel!)
-        self.labelDecibel.text = decibelString
-    }*/
+        self.decibel? = (self.sonometre?.getDispersyPercent())!
+        self.decibelString? = String(self.decibel!)
+        self.labelDecibel.text = self.decibelString
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
