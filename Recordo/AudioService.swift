@@ -16,28 +16,7 @@ import AVKit
 class AudioService : UIViewController, AVAudioRecorderDelegate {
     
     private var recorder : AVAudioRecorder? = nil
-    
-    func permissionWasGranted(result: @escaping (_: Bool)->()) {
-        switch AVAudioSession.sharedInstance().recordPermission() {
-        case AVAudioSessionRecordPermission.granted:
-            print("Permission granted")
-            result(true)
-            return
-        case AVAudioSessionRecordPermission.denied:
-            print("Pemission denied")
-        case AVAudioSessionRecordPermission.undetermined:
-            print("Request permission here")
-            AVAudioSession.sharedInstance().requestRecordPermission({ (granted) in
-                if granted {
-                    result(true)
-                    return
-                }
-            })
-        default:
-            break
-        }
-        result(false)
-    }
+    private var decibels : Float? = nil
 
     func getDocumentsDirectory() -> URL {
         let fileManager = FileManager.default
@@ -88,11 +67,11 @@ class AudioService : UIViewController, AVAudioRecorderDelegate {
         }
     }
     
-    func getDispersyPercent() -> Float {
+    func getDispersyPercent() -> Float? {
         if let recorder = recorder {
-            let decibels = recorder.averagePower(forChannel: 0)
+            decibels = recorder.averagePower(forChannel: 0)
         }
-        return 0
+        return decibels!
     }
 }
 

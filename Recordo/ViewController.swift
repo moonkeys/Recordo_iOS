@@ -7,37 +7,42 @@
 //
 
 import UIKit
+import AVFoundation
 
 
 
 class ViewController: UIViewController {
     
     @IBOutlet weak var labelDecibel: UILabel!
-    var audioService: AudioService?
-    var decibel:Float = 0.0
+    var sonometre: AudioService!
+    var decibel:Float?
+    var decibelString:String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        audioService?.permissionWasGranted(result: { granted in
-            if (granted) {
-                print("We have mic access!")
-                self.audioService?.initRecorder()
-                self.audioService?.start()
-                self.audioService?.update()
-                self.decibel = (self.audioService?.getDispersyPercent())!
-                var decibelString = String(self.decibel)
-                self.labelDecibel.text = decibelString
+        AVAudioSession.sharedInstance().requestRecordPermission({ (granted) in
+            if granted {
+                print("Permission acceptée pour le microphone");
+                self.sonometre?.initRecorder()
+                self.sonometre?.start()
+                self.sonometre?.update()
+                self.decibel? = (self.sonometre?.getDispersyPercent())!
+                self.decibelString? = String(self.decibel!)
+                self.labelDecibel.text = self.decibelString
+                return
             } else {
-                print("We don't have mic access")
+                print("Permission refusée");
+                //faire en sorte de bloquer l'utilisation du microphone, déjà fait de base ?
+                return
             }
         })
     }
 
-    /*override func update(_currentTime: TimeInterval) {
-        audioService.update()
-        decibel = audioService.getDispersyPercent()
-        let decibelString = String(decibel)
+    /*func update(_currentTime: TimeInterval) {
+        self.sonometre?.update()
+        decibel = (self.sonometre?.getDispersyPercent())!
+        let decibelString = String(decibel!)
         self.labelDecibel.text = decibelString
     }*/
     

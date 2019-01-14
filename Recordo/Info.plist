@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>NSMicrophoneUsageDescription</key>
-	<string>L&apos;accès au microphone est nécéssaire pour le détecter le niveau sonore seulement</string>
+	<string>$(PRODUCT_NAME) microphone use</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>
