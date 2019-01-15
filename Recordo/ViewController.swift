@@ -15,8 +15,8 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var labelDecibel: UILabel!
     var sonometre: AudioService!
-    var decibel:Float?
-    var decibelString:String?
+    var decibel:Float = 0.0
+    var decibelString:String = " "
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,11 +38,15 @@ class ViewController: UIViewController {
             }
         })
     }
-
-    func update(_currentTime: TimeInterval) {
+    func scheduledTimerWithTimeInterval(){
+        var updateTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.updateSonometre), userInfo: nil, repeats: true)
+    }
+    @objc func updateSonometre() {
         self.sonometre?.update()
-        self.decibel? = (self.sonometre?.getDispersyPercent())!
-        self.decibelString? = String(self.decibel!)
+        self.decibel = (self.sonometre?.getDispersyPercent())!
+        print(decibel)
+        self.decibelString = String(self.decibel)
+        print(decibelString)
         self.labelDecibel.text = self.decibelString
     }
     
