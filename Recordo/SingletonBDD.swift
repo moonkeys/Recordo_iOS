@@ -27,7 +27,7 @@ class SingletonBdd{
 
     var initiated = false;
     
-    var pk = 1000;    // valeur de départ pour la primary key
+    var pk = 0;    // valeur de départ pour la primary key
     var tablePresetExist = false   // false la table n'est encore pas créée   // false la table n'est encore pas créée
 
     

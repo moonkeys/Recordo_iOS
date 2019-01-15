@@ -17,9 +17,12 @@ class ViewController: UIViewController {
     var sonometre: AudioService!
     var decibel:Float = 0.0
     var decibelString:String = " "
+    let db = SingletonBdd.shared
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let test = "test"
+        db.insertPreset(nomPreset: test, nomInstrument1: test, nomInstrument2: test, nomInstrument3: test, nomInstrument4: test, nomInstrument5: test, nomInstrument6: test)
         
         AVAudioSession.sharedInstance().requestRecordPermission({ (granted) in
             if granted {
