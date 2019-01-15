@@ -18,7 +18,6 @@ class PresetViewController: UIViewController, UITextFieldDelegate, UIImagePicker
     @IBOutlet weak var et_instru4: UITextField!
     @IBOutlet weak var et_instru5: UITextField!
     @IBOutlet weak var et_instru6: UITextField!
-    //@IBOutlet weak var image: UIImageView!
     @IBOutlet weak var id: UITextField!
     
     @IBOutlet weak var pickerView: UIPickerView!
@@ -28,7 +27,6 @@ class PresetViewController: UIViewController, UITextFieldDelegate, UIImagePicker
     let db = SingletonBdd.shared
     var oldName: String = ""
     let types = ["Rock", "Pop", "Folk", "Rap", "Blues"]
-    //var photoHasChanged: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,29 +43,7 @@ class PresetViewController: UIViewController, UITextFieldDelegate, UIImagePicker
             oldName = preset.nomPreset
             et_nomPreset.text   = preset.nomPreset
             et_instru1.text   = preset.nomInstrument1
-            /*
-             switch(preset.type) {
-             
-             case "Rock":
-             pickerView.selectRow(0, inComponent: 0, animated: true)
-             case "Folk":
-             pickerView.selectRow(1, inComponent: 0, animated: true)
-             case "Blues":
-             pickerView.selectRow(2, inComponent: 0, animated: true)
-             default:
-             print("")
-             }*/
-            
-            /*
-             let e = db.getPresetById(id: db.getIdEnseignant(nom: oldName))
-             //print(e.descriptor)
-             if(e.photo != "?"){
-             let dataDecoded : Data = Data(base64Encoded: e.photo, options: .ignoreUnknownCharacters)!
-             let decodedimage = UIImage(data: dataDecoded)
-             image.image = decodedimage
-             }*/
         }
-        
     }
     
     override func didReceiveMemoryWarning() {
@@ -105,49 +81,11 @@ class PresetViewController: UIViewController, UITextFieldDelegate, UIImagePicker
         let instru4 = et_instru4.text ?? ""
         let instru5 = et_instru5.text ?? ""
         let instru6 = et_instru6.text ?? ""
-        //let selectedType = types[pickerView.selectedRow(inComponent: 0)]
-        
-        // Set the enseignant to be passed to EnseignantTableViewController after the unwind segue.
         
         preset = Preset(nomPreset: name, nomInstrument1: instru1, nomInstrument2: instru2, nomInstrument3: instru3, nomInstrument4: instru4, nomInstrument5: instru5, nomInstrument6: instru6)
         preset?.id = db.getIdPreset(nomPreset: oldName)
         
     }
-    
-    //MARK: Actions comment in ViewController.swift
-    /*
-     @IBAction func selectImage(_ sender: UIButton) {
-     
-     // UIImagePickerController is a view controller that lets a user pick media from their photo library.
-     let imagePickerController = UIImagePickerController()
-     
-     // Only allow photos to be picked, not taken.
-     imagePickerController.sourceType = .photoLibrary
-     
-     // Make sure ViewController is notified when the user picks an image.
-     imagePickerController.delegate = self
-     present(imagePickerController, animated: true, completion: nil)
-     }
-     
-     //MARK: UIImagePickerControllerDelegate
-     
-     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-     // Dismiss the picker if the user canceled.
-     dismiss(animated: true, completion: nil)
-     }
-     
-     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-     // The info dictionary may contain multiple representations of the image. You want to use the original.
-     guard let selectedImage = info[UIImagePickerControllerOriginalImage] as? UIImage else {
-     fatalError("Expected a dictionary containing an image, but was provided the following: \(info)")
-     }
-     image.image = selectedImage
-     photoHasChanged = true
-     updateSaveButtonState()
-     
-     // Dismiss the picker.
-     dismiss(animated: true, completion: nil)
-     }*/
     
     //MARK: UIPickerDelegate
     func numberOfComponents(in pickerView: UIPickerView) -> Int {

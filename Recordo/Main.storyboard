@@ -13,7 +13,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Recordo_Apple" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Recordo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -65,7 +65,7 @@
         <!--Enseignants-->
         <scene sceneID="ina-M2-1Ng">
             <objects>
-                <tableViewController id="HUG-cC-dme" customClass="PresetTableViewController" customModule="Recordo_Apple" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="HUG-cC-dme" customClass="PresetTableViewController" customModule="Recordo" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="36" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="wik-aC-k0f">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -79,7 +79,7 @@
                             </connections>
                         </button>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="EnseignantTableViewCell" rowHeight="36" id="ZFF-SS-7WC" customClass="EnseignantTableViewCell" customModule="Recordo_Apple" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="EnseignantTableViewCell" rowHeight="36" id="ZFF-SS-7WC" customClass="EnseignantTableViewCell" customModule="Recordo" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="36"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ZFF-SS-7WC" id="EID-RI-lMD">
@@ -135,7 +135,7 @@
         <!--Nouveau Preset-->
         <scene sceneID="JoI-Sy-KET">
             <objects>
-                <viewController id="qiD-J0-or5" customClass="PresetViewController" customModule="Recordo_Apple" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="qiD-J0-or5" customClass="PresetViewController" customModule="Recordo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YuH-ud-Gek">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -330,7 +330,7 @@
         <!--Presets-->
         <scene sceneID="o8E-Ak-rGa">
             <objects>
-                <tableViewController id="pG3-5J-uo0" userLabel="Presets" customClass="PresetTableViewController" customModule="Recordo_Apple" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="pG3-5J-uo0" userLabel="Presets" customClass="PresetTableViewController" customModule="Recordo" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="36" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="aDk-e4-Xwv">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -341,7 +341,7 @@
                             <state key="normal" title="Ajouter"/>
                         </button>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="EnseignantTableViewCell" rowHeight="36" id="Slq-wZ-osS" customClass="EnseignantTableViewCell" customModule="Recordo_Apple" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="EnseignantTableViewCell" rowHeight="36" id="Slq-wZ-osS" customClass="EnseignantTableViewCell" customModule="Recordo" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="36"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Slq-wZ-osS" id="T8Z-KI-b5l">

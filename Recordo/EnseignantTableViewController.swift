@@ -33,10 +33,6 @@ class PresetTableViewController: UITableViewController, UISearchBarDelegate, UIS
         searchController.dimsBackgroundDuringPresentation = false
         definesPresentationContext = true
         tableView.tableHeaderView = searchController.searchBar
-        
-        //Initialize search bar
-        //searchController.searchBar.scopeButtonTitles = ["All", "Small", "Medium", "Large"]
-        //searchController.searchBar.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -88,21 +84,6 @@ class PresetTableViewController: UITableViewController, UISearchBarDelegate, UIS
         }    
     }
 
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -140,9 +121,7 @@ class PresetTableViewController: UITableViewController, UISearchBarDelegate, UIS
     
     @IBAction func unwindToEnseignantsList(sender: UIStoryboardSegue) {
         if let sourceViewController = sender.source as? PresetViewController, let preset = sourceViewController.preset {
-            //print(enseignant.descriptor)
             if let selectedIndexPath = tableView.indexPathForSelectedRow {
-                // Update an existing enseignant.
                 presets[selectedIndexPath.row] = preset
                 tableView.reloadRows(at: [selectedIndexPath], with: .none)
                 
@@ -176,10 +155,6 @@ class PresetTableViewController: UITableViewController, UISearchBarDelegate, UIS
     //MARK: Private Methods
     
     private func loadData() {
-        // le = ListeEnseignants()
-        //db.createTableEnseignant()
-        //db.createTableEtudiant()
-        //db.createTableEnseignant()
         presets = db.selectAllPresets()
     }
 
