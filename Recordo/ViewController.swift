@@ -9,7 +9,6 @@
 import UIKit
 import AVFoundation
 
-//test allo
 
 class ViewController: UIViewController {
     
@@ -21,8 +20,8 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let test = "test"
-        db.insertPreset(nomPreset: test, nomInstrument1: test, nomInstrument2: test, nomInstrument3: test, nomInstrument4: test, nomInstrument5: test, nomInstrument6: test)
+        
+        //db.createTablePreset();
         
         AVAudioSession.sharedInstance().requestRecordPermission({ (granted) in
             if granted {

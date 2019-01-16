@@ -1,15 +1,15 @@
 //
 //  EnseignantTableViewController.swift
-//  if26project
+//  Recordo
 //
-//  Created by CACHARD MARC-ANTOINE on 11/01/2019.
-//  Copyright © 2019 CACHARD MARC-ANTOINE. All rights reserved.
+//  Created by BLANCHARD Guillaume on 11/01/2019.
+//  Copyright © 2019 BLANCHARD Guillaume. All rights reserved.
 //
 
 import UIKit
 import os.log
 
-class PresetTableViewController: UITableViewController, UISearchBarDelegate, UISearchResultsUpdating {
+class PresetTableViewController: UITableViewController {
     
     //MARK: Properties
     var presets = [Preset]()
@@ -28,9 +28,9 @@ class PresetTableViewController: UITableViewController, UISearchBarDelegate, UIS
         loadData()
         
         filteredPresets = presets
-        
+        /*
         searchController.searchResultsUpdater = self
-        searchController.dimsBackgroundDuringPresentation = false
+        searchController.dimsBackgroundDuringPresentation = false*/
         definesPresentationContext = true
         tableView.tableHeaderView = searchController.searchBar
     }
@@ -61,6 +61,7 @@ class PresetTableViewController: UITableViewController, UISearchBarDelegate, UIS
         let preset = presets[indexPath.row]
         
         cell.nomPreset.text = preset.nomPreset
+        cell.nbInstru.text = String(db.countPreset())
 
         return cell
     }
@@ -138,7 +139,7 @@ class PresetTableViewController: UITableViewController, UISearchBarDelegate, UIS
             }
         }
     }
-    
+    /*
     func updateSearchResults(for searchController: UISearchController) {
         // If we haven't typed anything into the search bar then do not filter the results
         if searchController.searchBar.text! == "" {
@@ -149,12 +150,14 @@ class PresetTableViewController: UITableViewController, UISearchBarDelegate, UIS
         }
         
         self.tableView.reloadData()
-    }
+    }*/
 
     
     //MARK: Private Methods
     
     private func loadData() {
+        //db.createTablePreset()
+        db.createTableInstrument()
         presets = db.selectAllPresets()
     }
 

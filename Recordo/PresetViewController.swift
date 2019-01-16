@@ -1,9 +1,9 @@
 //
 //  EnseignantViewController.swift
-//  if26project
+//  Recordo
 //
-//  Created by CACHARD MARC-ANTOINE on 11/01/2019.
-//  Copyright © 2019 CACHARD MARC-ANTOINE. All rights reserved.
+//  Created by BLANCHARD Guillaume on 11/01/2019.
+//  Copyright © 2019 BLANCHARD Guillaume. All rights reserved.
 //
 
 import UIKit
@@ -18,7 +18,6 @@ class PresetViewController: UIViewController, UITextFieldDelegate, UINavigationC
     @IBOutlet weak var et_instru4: UITextField!
     @IBOutlet weak var et_instru5: UITextField!
     @IBOutlet weak var et_instru6: UITextField!
-    @IBOutlet weak var id: UITextField!
     
     //@IBOutlet weak var pickerView: UIPickerView!
     
@@ -29,6 +28,7 @@ class PresetViewController: UIViewController, UITextFieldDelegate, UINavigationC
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         et_nomPreset.delegate = self
         et_instru1.delegate = self
         et_instru2.delegate = self
@@ -40,7 +40,9 @@ class PresetViewController: UIViewController, UITextFieldDelegate, UINavigationC
         //updateSaveButtonState()
         
         if let preset = self.preset {
+            navigationItem.title = preset.nomPreset
             oldName = preset.nomPreset
+            et_nomPreset.text = preset.nomPreset
             et_instru1.text   = preset.nomInstrument1
             et_instru2.text   = preset.nomInstrument2
             et_instru3.text   = preset.nomInstrument3
@@ -91,28 +93,23 @@ class PresetViewController: UIViewController, UITextFieldDelegate, UINavigationC
         
     }
     
-    //MARK: UIPickerDelegate
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
     
-    /*
     //MARK: UITextFieldDelegate
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
     }
-    
+    /*
     func textFieldDidBeginEditing(_ textField: UITextField) {
         // Disable the Save button while editing.
         saveButton.isEnabled = false
+    }*/
+ 
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        //updateSaveButtonState()
+        navigationItem.title = et_nomPreset.text
     }
     
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        updateSaveButtonState()
-        //navigationItem.title = textField.text
-    }
-    */
     //MARK: Private Methods
     
     private func updateSaveButtonState() {

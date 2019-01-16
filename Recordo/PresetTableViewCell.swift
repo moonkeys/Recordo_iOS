@@ -1,9 +1,9 @@
 //
-//  EnseignantTableViewCell.swift
-//  if26project
+//  PresetTableViewCell.swift
+//  Recordo
 //
-//  Created by CACHARD MARC-ANTOINE on 11/01/2019.
-//  Copyright © 2019 CACHARD MARC-ANTOINE. All rights reserved.
+//  Created by BLANCHARD Guillaume on 11/01/2019.
+//  Copyright © 2019 BLANCHARD Guillaume. All rights reserved.
 //
 
 import UIKit
@@ -12,6 +12,7 @@ class PresetTableViewCell: UITableViewCell {
     
 //MARK: Properties
     @IBOutlet weak var nomPreset: UILabel!
+    @IBOutlet weak var nbInstru: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
